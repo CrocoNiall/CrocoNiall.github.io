@@ -17,13 +17,14 @@ body {
 
 .cow{
   position: absolute;
-  bottom: -40px;
+  bottom: -60px;
   width: 100px;
   height: 100px;
   background-image: url(../images/cows/leftHappy.png);
 }
 
 #cow1 {
+  left: 0px;
 }
 #cow2 {
 left: 200px;
@@ -46,19 +47,20 @@ left: 200px;
 
 .hills {
   position: absolute;
-  width: 350px;
+  width: 400px;
   height: 220px;
-  bottom: -70px;
+  bottom: -50px;
 }
 #hill1 {
   z-index: 1;
-  left: -30px;
+  left: -100px;
 }
 #hill2 {
   z-index: 3;
-  left: 300px;
+  left: 220px;
+  bottom: -90px;
 }
 #hill3 {
   z-index: 1;
-  left: 600px
+  left: 500px
 }
