@@ -1,0 +1,46 @@
+body {
+  background-color: black;
+}
+
+
+#stage {
+    position: relative;
+    width: 800px;
+    height: 550px;
+    overflow: hidden;
+    margin: 50px auto 0 auto;
+    background-image: url(../images/stageBackground.png);
+    text-align: left;
+    cursor: crosshair;
+}
+
+/*#stage {
+  position: absolute;
+  display: block;
+  text-align: center;
+  background: url("../images/stageBackground.png");
+  width: 850px;
+  height: 590px;
+  border: solid black 3px;
+  border-radius: 7px;
+
+}*/
+
+.hills {
+  position: absolute;
+  width: 350px;
+  height: 220px;
+  bottom: -70px;
+}
+#hill1 {
+  z-index: 1;
+  left: -30px;
+}
+#hill2 {
+  z-index: 3;
+  left: 300px;
+}
+#hill3 {
+  z-index: 1;
+  left: 600px
+}
