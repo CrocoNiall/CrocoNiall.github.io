@@ -6,6 +6,19 @@ $(document).ready(function(){
 
 })
 
+
+function cowGenerator(delay) {
+
+
+  setInterval(function() {
+    throwRandomCow(1000, 200);
+  }, delay);
+
+
+};
+
+
+
 function throwRandomCow(speed, distance) {
   //creates two random values(degree of cow, cowIndex) and passes them to the throwCow() function. 
   //takes 2 arguments
@@ -16,7 +29,6 @@ function throwRandomCow(speed, distance) {
   randomCow = Math.floor((Math.random() * 6) + 1);
   randomDegree = Math.floor((Math.random() * 360) + 1);
   throwCow(randomCow, speed, randomDegree, distance);
-    console.log(randomCow);
 }
 
 
