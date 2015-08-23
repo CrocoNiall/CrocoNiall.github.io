@@ -5,17 +5,74 @@ console.log('Hello Niall');
 $(document).ready(function(){
 
 })
+var gamePlay;
 
+
+
+function cowEvents() {
+  $('#cow1').click(function(event) {  
+    var cow = $('#cow1');
+    shotCow(cow);
+    });
+
+  $('#cow2').click(function(event) { 
+    var cow = $('#cow2');
+    shotCow(cow); });
+
+  $('#cow3').click(function(event) {  
+    var cow = $('#cow3');
+    shotCow(cow);
+
+  });
+  $('#cow4').click(function(event) {  
+    var cow = $('#cow4');
+    shotCow(cow);
+
+  });
+  $('#cow5').click(function(event) { 
+    var cow = $('#cow5');
+    shotCow(cow);
+  });
+  $('#cow6').click(function(event) { 
+    var cow = $('#cow6');
+    shotCow(cow);
+  });
+
+}
+
+function shotCow(cowNum) {
+  if(cowNum.hasClass('madCow')) {
+      cowNum.css('background-image', 'url(./images/cows/rightMadShot.png)');
+      console.log('you hit a MAD cow'); 
+  } if (cowNum.hasClass('cow')) {
+      cowNum.css('background-image', 'url(./images/cows/leftHappyShot.png)');
+      console.log('you hit a Happy cow'); 
+  }   
+}
+
+function resetShotCow(cowNum) {
+  if(cowNum.hasClass('madCow')) {
+      cowNum.css('background-image', 'url(./images/cows/rightMadShot.png)');
+      console.log('you hit a MAD cow'); 
+  } if (cowNum.hasClass('cow')) {
+      cowNum.css('background-image', 'url(./images/cows/leftHappyShot.png)');
+      console.log('you hit a Happy cow'); 
+  }   
+}
 
 function cowGenerator(delay) {
-
-
-  setInterval(function() {
-    throwRandomCow(1000, 200);
+//takes one argument
+//**time delay between cowThrow e.g 2000
+//initialises game play
+  gamePlay = setInterval(function() {
+    throwRandomCow(1300, 200);
   }, delay);
-
-
 };
+
+function stopTheCows(){
+  clearInterval(gamePlay);
+
+}
 
 
 
@@ -41,7 +98,7 @@ function throwCow(cowIndex, speed, degree, distance){
 
   //creates three animations, one to throw cow up, one to bring cow down and the other to reset cow to origional position.
 
-  var div
+  var div;
   var cowThrowHeight = '+=' + distance;
   var cowThrowDist = distance;
 
@@ -99,5 +156,6 @@ function throwCow(cowIndex, speed, degree, distance){
 
     div.animate({
       left: resetBottom }, 1, 'linear');
+    resetShotCow(div);
 
 } 
