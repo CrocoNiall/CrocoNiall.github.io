@@ -156,6 +156,8 @@ function throwCow(cowIndex, speed, degree, distance){
 
     div.animate({
       left: resetBottom }, 1, 'linear');
-    resetShotCow(div);
+
 
 } 
+
+

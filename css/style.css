@@ -2,6 +2,7 @@ body {
   background-color: black;
 }
 
+/*****GAME BOARD*****/
 
 #stage {
     position: relative;
@@ -14,6 +15,8 @@ body {
     cursor: crosshair;
     border: solid black 10px;
 }
+
+/*****COW CLASSES*****/
 
 .cow{
   background-image: url(../images/cows/leftHappy.png);
@@ -39,12 +42,13 @@ body {
   background-image:  url(../images/cows/leftHappyShot.png); 
 }
 
+/******COW POSITIONS ******/
+
 #cow1 {
   left: 0px;
-
 }
 #cow2 {
-left: 100px;
+  left: 100px;
 }
 #cow3 {
   left: 300px;
@@ -59,8 +63,9 @@ left: 100px;
   left: 750px;
 }
 
+/****** HILL POSITIONS ******/
+
 .hills {
-  display: none;
   position: absolute;
   width: 400px;
   height: 220px;
