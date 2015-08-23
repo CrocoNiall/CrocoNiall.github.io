@@ -79,6 +79,7 @@ body {
 /****** HILL POSITIONS ******/
 
 .hills {
+  display: none;
   position: absolute;
   width: 400px;
   height: 220px;

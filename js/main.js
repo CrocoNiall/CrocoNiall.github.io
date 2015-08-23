@@ -5,7 +5,7 @@ console.log('Hello Niall');
 $(document).ready(function(){
 
   cowEvents();
-  cowGenerator(1000);
+  cowGenerator(1500);
 
 })
 var gamePlay;
@@ -76,7 +76,7 @@ function cowGenerator(delay) {
 //**time delay between cowThrow e.g 2000
 //initialises game play
   gamePlay = setInterval(function() {
-    throwRandomCow(1300, 200);
+    throwRandomCow(delay, 200);
   }, delay);
 };
 
@@ -97,6 +97,7 @@ function throwRandomCow(speed, distance) {
   randomCow = Math.floor((Math.random() * 6) + 1);
   randomDegree = Math.floor((Math.random() * 360) + 1);
   throwCow(randomCow, speed, randomDegree, distance);
+
 }
 
 
@@ -119,18 +120,21 @@ function throwCow(cowIndex, speed, degree, distance){
         var reset = distance * 2;
         var resetBottom = '-=' + reset;
         var cowThrowDist = '+=' + distance;
+          resetShotCow(div);
       break;
     case 2:
       div = $('#cow2');
         var reset = distance * 2;
         var resetBottom = '-=' + reset;
         var cowThrowDist = '+=' + distance;
+          resetShotCow(div);
       break;
     case 3:
       div = $('#cow3');
         var reset = distance * 2;
         var resetBottom = '-=' + reset;
         var cowThrowDist = '+=' + distance;
+          resetShotCow(div);
       break;
     case 4:
       div = $('#cow4');
@@ -138,6 +142,7 @@ function throwCow(cowIndex, speed, degree, distance){
         var reset = distance * 2;
         var resetBottom = '-=' + reset;
         var cowThrowDist = '+=' + distance;
+          resetShotCow(div);
       break;
     case 5:
       div = $('#cow5');
@@ -145,6 +150,7 @@ function throwCow(cowIndex, speed, degree, distance){
         var reset = distance * 2;
         var resetBottom = '-=' + reset;
         var cowThrowDist = '+=' + distance;
+          resetShotCow(div);
       break;
     case 6:
       div = $('#cow6');
@@ -152,10 +158,12 @@ function throwCow(cowIndex, speed, degree, distance){
         var reset = distance * 2;
         var resetBottom = '-=' + reset;
         var cowThrowDist = '+=' + distance;
+          resetShotCow(div);
       break;
   }
-  resetShotCow(div);
 
+  //resetShotCow(div);
+  //setTimeout(resetShotCow(div), (speed * 2));
   div.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});
   div.animate({
     left: cowThrowDist, 
@@ -168,7 +176,9 @@ function throwCow(cowIndex, speed, degree, distance){
     div.animate({
       left: resetBottom }, 1, 'linear');
 
-   // setTimeout(resetShotCow(div), (speed * 2));
+   // resetShotCow(div);
+
+   // 
 } 
 
 
