@@ -4,6 +4,9 @@ console.log('Hello Niall');
 
 $(document).ready(function(){
 
+  cowEvents();
+  cowGenerator(3000);
+
 })
 var gamePlay;
 
@@ -46,17 +49,17 @@ function shotCow(cowNum) {
       console.log('you hit a MAD cow'); 
   } if (cowNum.hasClass('cow')) {
       cowNum.css('background-image', 'url(./images/cows/leftHappyShot.png)');
-      console.log('you hit a Happy cow'); 
+      console.log('you hit a HAPPY cow'); 
   }   
 }
 
 function resetShotCow(cowNum) {
   if(cowNum.hasClass('madCow')) {
-      cowNum.css('background-image', 'url(./images/cows/rightMadShot.png)');
-      console.log('you hit a MAD cow'); 
+      cowNum.css('background-image', 'url(./images/cows/rightMad.png)');
+      console.log('reset Mad cow'); 
   } if (cowNum.hasClass('cow')) {
-      cowNum.css('background-image', 'url(./images/cows/leftHappyShot.png)');
-      console.log('you hit a Happy cow'); 
+      cowNum.css('background-image', 'url(./images/cows/leftHappy.png)');
+      console.log('reset HAPPY Cow'); 
   }   
 }
 
@@ -157,7 +160,7 @@ function throwCow(cowIndex, speed, degree, distance){
     div.animate({
       left: resetBottom }, 1, 'linear');
 
-
+    setTimeout(resetShotCow(div), (speed * 2));
 } 
 
 
