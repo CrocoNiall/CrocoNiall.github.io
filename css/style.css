@@ -1,5 +1,18 @@
+@font-face {
+    font-family:"FarmYard";
+    src: url("../fonts/farm.ttf"); /*Only compatable with CSS3 browsers*/
+}
+
 body {
   background-color: black;
+  font-family: Farmyard;
+  color: black;
+}
+
+#stage h2 {
+  font-size: 50px;
+  margin: 20px;
+
 }
 
 /*****GAME BOARD*****/
