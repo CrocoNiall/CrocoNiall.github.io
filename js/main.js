@@ -9,16 +9,17 @@ $(document).ready(function(){
 
   setTimeout(function(){ 
     cover.slideUp('slow');
-  }, 300);
+  }, 2000);
   setTimeout(function(){
     stage.slideDown('slow');
-  }, 400);
+  }, 2500);
 
   buttonEvents();
   cowEvents();
 
   $('#playButton').on('click', function(event){
     toggleSplashScreen();
+    levelUp();
 
   });
 
