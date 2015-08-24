@@ -7,11 +7,39 @@ body {
   background-color: black;
   font-family: Farmyard;
   color: black;
+  text-align: center;
 }
+
+#splashScreen {
+  position: relative;
+  width: 700px;
+  height: 450px;
+  margin: 0 auto;
+  margin-top: 30px;
+  border: solid black 15px;
+  border-radius: 20px;
+  background: #E6E6E6;
+  font-size: 30px;
+  text-align: left;
+
+}
+
+#cover {
+    display: none;
+    position: relative;
+    width: 800px;
+    height: 550px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-image: url(../images/cover.png);
+
+}
+
 
 #stage h2 {
   font-size: 50px;
   margin: 20px;
+  z-index: 2;
 
 }
 
@@ -37,6 +65,7 @@ body {
   bottom: -40px;
   width: 100px;
   height: 100px;
+  z-index: 2;
 
 }
 .madCow {
@@ -45,6 +74,7 @@ body {
   bottom: -40px;
   width: 100px;
   height: 100px;
+  z-index: 2;
 
 }
 
@@ -79,22 +109,39 @@ body {
 /****** HILL POSITIONS ******/
 
 .hills {
-  display: none;
+  position: absolute;
+  bottom: -10px;
+  height: 400px;
+  width: 800px;
+
+  
+}
+#hill1 {
+  z-index: 3;
+  height:160px;
+  left: 0px;
+}
+#hill2 {
+  z-index: 1;
+  left: 0px;
+  bottom: 0px;
+}
+/*.hills {
   position: absolute;
   width: 400px;
   height: 220px;
   bottom: -40px;
 }
 #hill1 {
-  z-index: 1;
+  z-index: 2;
   left: -100px;
 }
 #hill2 {
   z-index: 3;
   left: 220px;
   bottom: -90px;
-}
+}*/
 #hill3 {
-  z-index: 1;
+  z-index: 2;
   left: 500px
 }

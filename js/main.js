@@ -5,11 +5,23 @@ console.log('Hello Niall');
 $(document).ready(function(){
 
   cowEvents();
-  cowGenerator(1500);
+  //cowGenerator(1500);
 
 })
 var gamePlay;
 var points = 0;
+var splashVisible = true;
+
+function toggleSplashScreen() {
+  var element = $('#splashScreen');
+  if (splashVisible === true){
+    element.slideUp('slow');
+    splashVisible = false;
+  } else if (splashVisible === false ) {
+    element.slideDown('slow');
+    splashVisible = true; 
+  }
+}
 
 
 
@@ -77,7 +89,7 @@ function cowGenerator(delay) {
 //initialises game play
   gamePlay = setInterval(function() {
     throwRandomCow(delay, 200);
-  }, delay);
+  }, delay-100);
 };
 
 function stopTheCows(){
