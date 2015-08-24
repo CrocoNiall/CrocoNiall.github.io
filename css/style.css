@@ -15,14 +15,17 @@ body {
   width: 700px;
   height: 450px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 10px;
   border: solid black 15px;
   border-radius: 20px;
   background: #E6E6E6;
-  font-size: 30px;
   text-align: left;
 
+}
+
+#splashScreen p {
+    font-size: 25px;
 }
 
 #scoreContainer{
@@ -65,20 +68,34 @@ body {
   background: red;
 }
 #playButton {
-  display: block;
-  margin: 0 auto;
-  height: 50px;
+  display: inline-block;
+  margin-left: 180px;
+  height: 25px;
   width: 100px;
   background: red;
   border: solid black 5px;
   border-radius: 15px;
   text-align: center;
-  padding-top: 8px;
+  padding-top: 0px;
   font-size: 30px;
 }
 #playButtonText {
-  font-size: 30px;
+  font-size: 5px;
   font-style: bold;
+  padding-bottom: 3px;
+}
+
+ul {
+  padding-left: 0px;
+  padding-bottom: 0px;
+
+}
+ul li {
+  display: inline-block;
+  padding-right: 10px;
+  padding-left: 10px;
+
+
 }
 #title{
   margin: 0;
@@ -95,8 +112,7 @@ body {
 }
 .center {
   text-align: center;
-  padding-left: 0px;
-  margin-top: 5px;
+
   font-size: 50px;
 }
 
@@ -112,16 +128,18 @@ body {
 }
 
 #splashInstructions {
-  margin: 20px;
+  margin: 0 10px 10px 10px;
 }
+
 #instructionsLeft {
   display: inline-block;
-  width: 300px;
-  margin-right: 20px;
+  width: 275px;
+
 }
 #instructionsRight {
+  padding-top: 0;
   display: inline-block;
-  width: 300px;
+  width: 375px;
   vertical-align: top;
 }
 #splashLeaderBoard {
