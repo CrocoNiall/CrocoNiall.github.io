@@ -1,16 +1,33 @@
-console.log('Hello Niall');
-
+  console.log('Hello Niall')
 
 
 $(document).ready(function(){
 
-  cowEvents();
   //cowGenerator(1500);
+  var cover = $('#cover');
+  var stage = $('#stage');
+
+  setTimeout(function(){ 
+    cover.slideUp('slow');
+  }, 300);
+  setTimeout(function(){
+    stage.slideDown('slow');
+  }, 400);
+
+  buttonEvents();
+  cowEvents();
+
+  $('#playButton').on('click', function(event){
+    toggleSplashScreen();
+
+  });
 
 })
 var gamePlay;
 var points = 0;
 var splashVisible = true;
+var currentLevel = 0;
+var difficulty = 2000;
 
 function toggleSplashScreen() {
   var element = $('#splashScreen');
@@ -23,7 +40,22 @@ function toggleSplashScreen() {
   }
 }
 
+function toggleSplashInstructions() {
+  var element = $('#splashInstructions');
+  if (splashVisible === true){
+    element.slideUp('slow');
+    splashVisible = false;
+  } else if (splashVisible === false ) {
+    element.slideDown('slow');
+    splashVisible = true; 
+  }
+}
 
+function buttonEvents(){
+  console.log('called buttonEvents()')
+
+
+}
 
 function cowEvents() {
   $('#cow1').click(function(event) {  
@@ -97,7 +129,25 @@ function stopTheCows(){
 
 }
 
+function levelUp() {
+  stopTheCows();
+  levelStatus = $('#levelIndicator');
+  currentLevel++
+  difficulty -= 100;
 
+  $('#level').html(currentLevel);
+  levelStatus.slideDown('slow');
+  
+
+  setTimeout(function(){
+    levelStatus.slideUp('slow');
+  }, 2000)
+
+  setTimeout(function(){
+    cowGenerator(difficulty);  
+  }, 2000)
+   
+}
 
 function throwRandomCow(speed, distance) {
   //creates two random values(degree of cow, cowIndex) and passes them to the throwCow() function. 

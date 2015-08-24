@@ -16,6 +16,7 @@ body {
   height: 450px;
   margin: 0 auto;
   margin-top: 30px;
+  padding: 10px;
   border: solid black 15px;
   border-radius: 20px;
   background: #E6E6E6;
@@ -23,14 +24,82 @@ body {
   text-align: left;
 
 }
+#scoreContainer{
+  font-size: 50px;
+  margin: 20px;
+}
+#playButton {
+  display: block;
+  margin: 0 auto;
+  height: 50px;
+  width: 100px;
+  background: red;
+  border: solid black 5px;
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 8px;
+  font-size: 30px;
+}
+#playButtonText {
+  font-size: 30px;
+  font-style: bold;
+}
+#title{
+  margin: 0;
+}
+
+.splashInner {
+  margin: 20px;
+  text-align: center;
+}
+
+.splashInner p {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.center {
+  text-align: center;
+  padding-left: 0px;
+  margin-top: 5px;
+  font-size: 50px;
+}
+
+#levelIndicator {
+  display: none;
+  position: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  width: 200px;
+  height: 80px;
+  vertical-align: bottom;
+  padding: 5px;
+}
+
+#splashInstructions {
+  margin: 20px;
+}
+#instructionsLeft {
+  display: inline-block;
+  width: 300px;
+  margin-right: 20px;
+}
+#instructionsRight {
+  display: inline-block;
+  width: 300px;
+  vertical-align: top;
+}
+#splashLeaderBoard {
+  display: none;
+  margin: 20px;
+}
 
 #cover {
-    display: none;
+
     position: relative;
     width: 800px;
     height: 550px;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 50px auto 0 auto ;
     background-image: url(../images/cover.png);
 
 }
@@ -46,6 +115,7 @@ body {
 /*****GAME BOARD*****/
 
 #stage {
+  display: none;
     position: relative;
     width: 800px;
     height: 550px;
@@ -111,8 +181,7 @@ body {
 .hills {
   position: absolute;
   bottom: -10px;
-  height: 400px;
-  width: 800px;
+
 
   
 }
@@ -120,11 +189,15 @@ body {
   z-index: 3;
   height:160px;
   left: 0px;
+  height: 150px;
+  width: 800px;
 }
 #hill2 {
   z-index: 1;
-  left: 0px;
+  left: 250px;
   bottom: 0px;
+  height: 150px;
+  width: 400px;
 }
 /*.hills {
   position: absolute;
@@ -141,7 +214,7 @@ body {
   left: 220px;
   bottom: -90px;
 }*/
-#hill3 {
+/*#hill3 {
   z-index: 2;
   left: 500px
-}
+}*/
