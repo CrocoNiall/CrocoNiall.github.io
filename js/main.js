@@ -28,6 +28,8 @@ var points = 0;
 var splashVisible = true;
 var currentLevel = 0;
 var difficulty = 2000;
+var infectionLevel = 100;
+var interval;
 
 function toggleSplashScreen() {
   var element = $('#splashScreen');
@@ -53,8 +55,6 @@ function toggleSplashInstructions() {
 
 function buttonEvents(){
   console.log('called buttonEvents()')
-
-
 }
 
 function cowEvents() {
@@ -91,10 +91,12 @@ function cowEvents() {
 function shotCow(cowNum) {
   if(cowNum.hasClass('madCow')) {
       cowNum.css('background-image', 'url(./images/cows/rightMadShot.png)');
+      adjustInfection(-20)
       //console.log('you hit a MAD cow'); 
       updateScore(5);
   } if (cowNum.hasClass('cow')) {
       cowNum.css('background-image', 'url(./images/cows/leftHappyShot.png)');
+      adjustInfection(50);
       //console.log('you hit a HAPPY cow'); 
 
   }   
@@ -129,14 +131,43 @@ function stopTheCows(){
 
 }
 
+function adjustInfection(total) {
+  var infectionBar = $('#infectionBar'); 
+  infectionLevel += total;
+
+  infectionBar.css('width', infectionLevel);
+
+  if (infectionLevel >= 200) {
+    gameOver();
+    clearInterval(interval);
+  }
+  if (infectionLevel <= 0) {
+    levelUp();
+  }
+}
+
+function gameOver() {
+  console.log('game over');
+  infectionLevel = 100;
+  stopTheCows();
+}
+
 function levelUp() {
+  clearInterval(interval);
   stopTheCows();
   levelStatus = $('#levelIndicator');
   currentLevel++
   difficulty -= 100;
+  infectionLevel = 100;
+  var infectionIncrament = 1;
+  infectionIncrament += 2;
 
   $('#level').html(currentLevel);
   levelStatus.slideDown('slow');
+
+  interval = setInterval(function(){
+    adjustInfection(infectionIncrament);
+  }, 1000)
   
 
   setTimeout(function(){
