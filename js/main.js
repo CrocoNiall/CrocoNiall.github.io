@@ -1,5 +1,14 @@
   console.log('Hello Niall')
 
+var gamePlay;
+var points = 0;
+var splashVisible = true;
+var currentLevel = 0;
+var difficulty = 2000;
+var infectionLevel = 100;
+var interval;
+var previousCow = 0;
+var sounds = false;
 
 $(document).ready(function(){
 
@@ -12,7 +21,9 @@ $(document).ready(function(){
   }, 2000);
   setTimeout(function(){
     stage.slideDown('slow');
+    sounds = false;
   }, 2500);
+
 
   buttonEvents();
   cowEvents();
@@ -20,26 +31,21 @@ $(document).ready(function(){
   $('#playButton').on('click', function(event){
     toggleSplashScreen();
     levelUp();
+    startSound('audio/reLoad.mp3' , 'reload');
 
   });
 
 })
-var gamePlay;
-var points = 0;
-var splashVisible = true;
-var currentLevel = 0;
-var difficulty = 2000;
-var infectionLevel = 100;
-var interval;
-
 function toggleSplashScreen() {
   var element = $('#splashScreen');
   if (splashVisible === true){
     element.slideUp('slow');
     splashVisible = false;
+    sounds = true;
   } else if (splashVisible === false ) {
     element.slideDown('slow');
     splashVisible = true; 
+    sounds = false;
   }
 }
 
@@ -51,11 +57,15 @@ function toggleSplashInstructions() {
   } else if (splashVisible === false ) {
     element.slideDown('slow');
     splashVisible = true; 
+
   }
 }
 
 function buttonEvents(){
   console.log('called buttonEvents()')
+  $('#stage').on('click', function(event){
+    startSound('audio/gunShot.mp3' , 'shot');
+  })
 }
 
 function cowEvents() {
@@ -168,16 +178,17 @@ function levelUp() {
 
   interval = setInterval(function(){
     adjustInfection(infectionIncrament);
-  }, 1000)
+    }, 1000)
   
 
   setTimeout(function(){
     levelStatus.slideUp('slow');
-  }, 2000)
+    }, 2000)
 
   setTimeout(function(){
     cowGenerator(difficulty);  
-  }, 2000)
+    }, 2000)
+    startSound('audio/reLoad.mp3' , 'reload');
    
 }
 
@@ -187,10 +198,13 @@ function throwRandomCow(speed, distance) {
   //**speed of throw
   //**distance of throw
 
-
+ 
   randomCow = Math.floor((Math.random() * 6) + 1);
   randomDegree = Math.floor((Math.random() * 360) + 1);
+    if (previousCow != randomCow) {
   throwCow(randomCow, speed, randomDegree, distance);
+  previousCow = randomCow;
+  }
 
 }
 
@@ -274,5 +288,22 @@ function throwCow(cowIndex, speed, degree, distance){
 
    // 
 } 
+
+function startSound(url, ID){
+soundManager.setup({
+  url: '/js/soundmanager/swf',
+  onready: function() {
+
+    var mySound = soundManager.createSound({
+      id: ID,
+      url: url 
+    });
+    if (sounds === true){
+    mySound.play(); 
+  }
+  },
+  ontimeout: function() {} });
+
+}
 
 
