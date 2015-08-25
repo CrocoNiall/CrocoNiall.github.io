@@ -1,5 +1,9 @@
-  console.log('Hello Niall')
+//---------------------------------
+//  Niall Wallace - 24/08/15
+//  GA London - WDI15
+//--------------------------------- 
 
+//init local variables 
 var gamePlay;
 var points = 0;
 var splashVisible = true;
@@ -12,27 +16,24 @@ var sounds = false;
 var gameOverVisible = false;
 
 $(document).ready(function(){
-
-  //cowGenerator(1500);
   var cover = $('#cover');
   var stage = $('#stage');
-
   setTimeout(function(){ 
     cover.slideUp('slow');
-  }, 2000);
+      }, 2000);
+
   setTimeout(function(){
     stage.slideDown('slow');
     sounds = false;
-  }, 2500);
-
+      }, 2500);
 
   buttonEvents();
   cowEvents();
-
-
 })
 
 function toggleSplashScreen() {
+//Renders the SplashScreen if unvisible/hides the SplashScreen if visible.
+
   var element = $('#splashScreen');
   if (splashVisible === true){
     element.slideUp('slow');
@@ -46,10 +47,14 @@ function toggleSplashScreen() {
 }
 
 function toggleSplashInstructions() {
+//Renders the Splash element -instructions if unvisible/hides the instructions if visible. 
+
   var element = $('#splashInstructions');
+
   if (splashVisible === true){
     element.slideUp('slow');
     splashVisible = false;
+
   } else if (splashVisible === false ) {
     element.slideDown('slow');
     splashVisible = true; 
@@ -58,6 +63,9 @@ function toggleSplashInstructions() {
 }
 
 function toggleGameOver() {
+//Renders the GameOver element if unvisible/hides the SplashScreen in visible.
+//Amends #finalPoints HTML to display ending score.
+
   var element = $('#gameOver');
   if (gameOverVisible === true){
     element.slideUp('slow');
@@ -70,7 +78,7 @@ function toggleGameOver() {
 }
 
 function buttonEvents(){
-  console.log('called buttonEvents()')
+//inits event listeners for buttons and audio.
 
   $('#stage').on('click', function(event){
     startSound('audio/gunShot.mp3' , 'shot');
@@ -91,6 +99,8 @@ function buttonEvents(){
 }
 
 function resetGame() {
+//resets game and reassigns var.
+
     toggleGameOver();
     currentLevel = 0;  
     points = 0;
@@ -100,6 +110,8 @@ function resetGame() {
 }
 
 function cowEvents() {
+//set up event listeners for cow divs. called shotCow() function after upon event.
+
   $('#cow1').click(function(event) {  
     var cow = $('#cow1');
     shotCow(cow);
@@ -131,30 +143,42 @@ function cowEvents() {
 }
 
 function shotCow(cowNum) {
+//changes the image of 'cow' to 'shot cow' depending on the class of the images. 
+//calls the adjustInfection() function with the approprite arguments.
+
   if(cowNum.hasClass('madCow')) {
       cowNum.css('background-image', 'url(./images/cows/rightMadShot.png)');
       adjustInfection(-20)
+      startSound('audio/cow2.wav', 'cowSound2');
       //console.log('you hit a MAD cow'); 
       updateScore(5);
   } if (cowNum.hasClass('cow')) {
       cowNum.css('background-image', 'url(./images/cows/leftHappyShot.png)');
       adjustInfection(50);
+      startSound('audio/moo1.wav', 'cowSound1');
       //console.log('you hit a HAPPY cow'); 
 
   }   
 }
 
 function resetShotCow(cowNum) {
+//resets image of cow from 'shot cow' to 'cow'
+  
   if(cowNum.hasClass('madCow')) {
       cowNum.css('background-image', 'url(./images/cows/rightMad.png)');
+      
       //console.log('reset Mad cow'); 
   } if (cowNum.hasClass('cow')) {
       cowNum.css('background-image', 'url(./images/cows/leftHappy.png)');
+      
       //console.log('reset HAPPY Cow'); 
   }   
 }
 
 function updateScore(quantity) {
+// updates the score variable dependin on the paramiter. 
+//updates HTML to represent the value.
+
   points = points + quantity;
   $('#points').html(points);
 }
@@ -163,17 +187,38 @@ function cowGenerator(delay) {
 //takes one argument
 //**time delay between cowThrow e.g 2000
 //initialises game play
+
   gamePlay = setInterval(function() {
     throwRandomCow(delay, 200);
   }, delay-100);
 };
 
-function stopTheCows(){
-  clearInterval(gamePlay);
+// function cowSound() {
+//   cow2Sound = setInterval(function(){
+//     startSound('audio/cow2.wav', 'cowSound2');
+//     }, 2000)
 
+//   cow1Sound = setInterval(function(){
+//       startSound('audio/cow3.wav', 'cowSound1');
+//     }, 3500)
+
+//   cow2Sound = setInterval(function(){
+//       startSound('audio/moo1.wav', 'cowSound3');
+
+//     }, 7000)
+// } 
+  
+
+function stopTheCows(){
+//disables interval that drives the throwRandomCow() function. 
+
+  clearInterval(gamePlay);
 }
 
 function adjustInfection(total) {
+//ammends css atribure of '#infectionBar' to represent the infectionLevel variable.
+//calculates if gameOver() or levelUp() critera's have been met.
+
   var infectionBar = $('#infectionBar'); 
   infectionLevel += total;
 
@@ -189,8 +234,9 @@ function adjustInfection(total) {
 }
 
 function gameOver() {
-
-  console.log('game over');
+//stops the incrament of $infectionLevel.
+//resets $infectionLevel back to default.
+//displays gameOver onscreen element.
 
   clearInterval(interval);
   infectionLevel = 100;
@@ -199,6 +245,12 @@ function gameOver() {
 }
 
 function levelUp() {
+//brings current level to a halt.
+//incraments $currentLevel var.
+//resets $infectionLevel to default.
+//increases $difficulty.
+
+
   clearInterval(interval);
   stopTheCows();
   levelStatus = $('#levelIndicator');
@@ -305,8 +357,8 @@ function throwCow(cowIndex, speed, degree, distance){
       break;
   }
 
-  //resetShotCow(div);
-  //setTimeout(resetShotCow(div), (speed * 2));
+//animates 'cow' elements
+
   div.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});
   div.animate({
     left: cowThrowDist, 
@@ -316,15 +368,15 @@ function throwCow(cowIndex, speed, degree, distance){
     left: cowThrowDist,
     bottom: "-=400" },speed, 'linear');
 
+//resets image back to origional position
+
     div.animate({
       left: resetBottom }, 1, 'linear');
-
-   // resetShotCow(div);
-
-   // 
 } 
 
 function startSound(url, ID){
+//Sound manager core code.  
+
 soundManager.setup({
   url: '/js/soundmanager/swf',
   onready: function() {

@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<!-- //---------------------------------
+//  Niall Wallace - 24/08/15
+//  GA London - WDI15
+//---------------------------------  -->
+
 <html>
 
 <head>
@@ -15,12 +21,10 @@
 
             <div id='instructionsLeft'>
               <h2 class='center'><b>WARNING!!!!</b></h1>
-              <p>BRITANS CATTLE FIELDS ARE BEING OVERWELMED WITH CASES OF MAD COW DIESEAS!!</P>
+              <p>BRITAIN'S CATTLE FIELDS ARE BEING OVERWHELMED WITH CASES OF MAD COW DISEASE!!</P>
               <h2 class='center'>YOUR MISSION</h2>
               <P><b>Kill all the MAD Cows before the infection takes over!!!</b></P>
-
-
-              </div>
+            </div>
 
             <div id='instructionsRight'>
                 <h2 class='center'><b>How To Play</b></h2>
@@ -29,24 +33,17 @@
                   <li><p>Healthy cow</p><img id='displayCow' src="images/cows/rightHappy.png"></li>
                   <li><p>MAD cow</p><img src="images/cows/rightMad.png"></li>
                 </ul>
-
               <div id='playButton'><p id='playButtonText'>Play</p></div>
+            
             </div>
+
           </div> 
         </div>
+      </div>
 
-      <div class='splashInner' id='splashLeaderBoard'>
-        
-          <h1 id='title'>Leader Board</h1>  
-          <div id='leaderboard'>
-            this is the leaderboad.
-          </div> 
-          </div>
-        </div>
-
-        <div id='scoreContainer'>
-          <h2>Points: <span id='points'>0</span> </h2>
-        </div>
+      <div id='scoreContainer'>
+        <h2>Points: <span id='points'>0</span> </h2>
+      </div>
 
 
 
@@ -67,13 +64,23 @@
           <div id='gameOverRight'>
             <img id='gameOverCow' src="images/cows/rightMad.png">
             <div id='menuButton'><p id='menuButtonText'>Menu</p></div>
+
+
           </div>
+
+      <!--initial code for Leaderboard -->
+
+          <!-- <div id='leaderBoard'>
+          <p>Leader Board</p>
+          <ol>
+            <li id='1st'>kjhsfa</li>
+            <li id='2nd'>asdnsda</li>
+            <li id='3rd'>kkjsdkjas</li>
+          </ol>
+          </div> -->
         </div>
         <div id='hills'>
-          <!-- <img class='hills' id='hill1' src="images/hill1New.png">
-          <img class='hills' id='hill2' src="images/hill2New.png">
-          <img class='hills' id='hill3' src="images/hill3New.png"> -->
-
+    
           <img class='hills' id='hill1' src="images/fronthills2.png"> 
           <img class='hills' id='hill2' src="images/backhill2.png"> 
         </div>
@@ -94,4 +101,5 @@
 <script type="text/javascript" src="./js/jquery-2.1.4.js"></script>
 <script src="js/soundmanager/script/soundmanager2.js"></script>
 <script src="js/main.js"></script>
+
 </html>

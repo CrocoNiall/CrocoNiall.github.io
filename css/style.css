@@ -1,3 +1,9 @@
+/*//---------------------------------
+//  Niall Wallace - 24/08/15
+//  GA London - WDI15
+//--------------------------------- 
+*/
+
 @font-face {
     font-family:"FarmYard";
     src: url("../fonts/farm.ttf"); /*Only compatable with CSS3 browsers*/
@@ -51,13 +57,14 @@ body {
 #gameOverLeft {
   display: inline-block;
   width: 250px;
+  height: 190px;
   vertical-align: top;
 
 }
 #gameOverRight {
   display:inline-block;
   width: 200px;
-  height: 400px;
+  height: 190px;
   vertical-align: top;
 
 }
@@ -197,15 +204,33 @@ ul li {
   margin: 20px;
 }
 
+#leaderBoard {
+  display:block;
+  height: 190px;
+  text-align: left;
+  margin: 0 0 0 10px;
+}
+
+#leaderBoard p {
+  margin: 0;
+  font-size: 25px;
+  padding: 0;
+}
+
+#leaderBoard li {
+  font-size: 25px;
+}
+#leaderBoard ol {
+  margin:0;
+}
+
 #cover {
-
-    position: relative;
-    width: 800px;
-    height: 550px;
-    overflow: hidden;
-    margin: 50px auto 0 auto ;
-    background-image: url(../images/cover.png);
-
+  position: relative;
+  width: 800px;
+  height: 550px;
+  overflow: hidden;
+  margin: 50px auto 0 auto ;
+  background-image: url(../images/cover.png);
 }
 
 
@@ -213,7 +238,6 @@ ul li {
   font-size: 50px;
   margin: 20px;
   z-index: 2;
-
 }
 
 /*****GAME BOARD*****/
@@ -249,9 +273,7 @@ ul li {
   width: 100px;
   height: 100px;
   z-index: 2;
-
 }
-
 .madShot {
   background-image:  url(../images/cows/rightMadShot.png); 
 }
@@ -285,9 +307,6 @@ ul li {
 .hills {
   position: absolute;
   bottom: -10px;
-
-
-  
 }
 #hill1 {
   z-index: 3;
@@ -303,22 +322,3 @@ ul li {
   height: 150px;
   width: 400px;
 }
-/*.hills {
-  position: absolute;
-  width: 400px;
-  height: 220px;
-  bottom: -40px;
-}
-#hill1 {
-  z-index: 2;
-  left: -100px;
-}
-#hill2 {
-  z-index: 3;
-  left: 220px;
-  bottom: -90px;
-}*/
-/*#hill3 {
-  z-index: 2;
-  left: 500px
-}*/
