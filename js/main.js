@@ -9,6 +9,7 @@ var infectionLevel = 100;
 var interval;
 var previousCow = 0;
 var sounds = false;
+var gameOverVisible = false;
 
 $(document).ready(function(){
 
@@ -28,14 +29,9 @@ $(document).ready(function(){
   buttonEvents();
   cowEvents();
 
-  $('#playButton').on('click', function(event){
-    toggleSplashScreen();
-    levelUp();
-    startSound('audio/reLoad.mp3' , 'reload');
-
-  });
 
 })
+
 function toggleSplashScreen() {
   var element = $('#splashScreen');
   if (splashVisible === true){
@@ -61,11 +57,46 @@ function toggleSplashInstructions() {
   }
 }
 
+function toggleGameOver() {
+  var element = $('#gameOver');
+  if (gameOverVisible === true){
+    element.slideUp('slow');
+    gameOverVisible = false;
+  } else if (gameOverVisible === false){
+    element.slideDown('slow');
+    gameOverVisible = true;
+    $('#finalPoints').html(points);
+  }
+}
+
 function buttonEvents(){
   console.log('called buttonEvents()')
+
   $('#stage').on('click', function(event){
     startSound('audio/gunShot.mp3' , 'shot');
   })
+
+  $('#menuButton').on('click', function(event){
+    resetGame();
+  })
+
+
+  $('#playButton').on('click', function(event){
+    toggleSplashScreen();
+    currentLevel = 0;
+    levelUp();
+    startSound('audio/reLoad.mp3' , 'reload');
+
+  });
+}
+
+function resetGame() {
+    toggleGameOver();
+    currentLevel = 0;  
+    points = 0;
+    infectionLevel = 100;
+    clearInterval(interval);
+    toggleSplashScreen(); 
 }
 
 function cowEvents() {
@@ -158,9 +189,13 @@ function adjustInfection(total) {
 }
 
 function gameOver() {
+
   console.log('game over');
+
+  clearInterval(interval);
   infectionLevel = 100;
   stopTheCows();
+  toggleGameOver();
 }
 
 function levelUp() {

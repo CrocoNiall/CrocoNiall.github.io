@@ -31,10 +31,42 @@ body {
 #scoreContainer{
   display: inline-block;
   font-size: 50px;
-  /*margin: 20px;*/
   width: 220px;
   height:70px;
   margin-right: 0;
+}
+
+#gameOver{
+
+  display: none;
+  font-size: 50px;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+  background-color:#E6E6E6;
+  border: solid black 10px;
+}
+
+#gameOverLeft {
+  display: inline-block;
+  width: 250px;
+  vertical-align: top;
+
+}
+#gameOverRight {
+  display:inline-block;
+  width: 200px;
+  height: 400px;
+  vertical-align: top;
+
+}
+#gameOverLeft h2{
+  margin-bottom: 0;
+}
+#gameOverCow {
+  vertical-align: middle;
+  margin-top: 10px;
 }
 #scoreContainer h2 {
   width: auto;
@@ -83,6 +115,23 @@ body {
   font-size: 5px;
   font-style: bold;
   padding-bottom: 3px;
+}
+#menuButton {
+  display: inline-block;
+  height: 25px;
+  width: 100px;
+  background: red;
+  border: solid black 5px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 30px;
+}
+#menuButtonText {
+  font-size: 25px;
+  font-style: bold;
+  margin: 0;
+  padding: 0;
+
 }
 
 ul {
