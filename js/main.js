@@ -12,7 +12,7 @@ var difficulty = 2000;
 var infectionLevel = 100;
 var interval;
 var previousCow = 0;
-var sounds = false;
+var sounds = true;
 var gameOverVisible = false;
 
 $(document).ready(function(){
@@ -24,7 +24,6 @@ $(document).ready(function(){
 
   setTimeout(function(){
     stage.slideDown('slow');
-    sounds = false;
       }, 2500);
 
   buttonEvents();
@@ -38,11 +37,11 @@ function toggleSplashScreen() {
   if (splashVisible === true){
     element.slideUp('slow');
     splashVisible = false;
-    sounds = true;
+
   } else if (splashVisible === false ) {
     element.slideDown('slow');
     splashVisible = true; 
-    sounds = false;
+
   }
 }
 
@@ -87,6 +86,19 @@ function buttonEvents(){
   $('#menuButton').on('click', function(event){
     resetGame();
   })
+
+  $('#audio').on('click', function(event){
+    var audioIcon = $('#audioStatus');
+    if (sounds === true){
+      sounds = false;
+      audioIcon.attr('src', 'images/soundOff.png');
+    } else if (sounds === false){
+      sounds = true;
+      audioIcon.attr('src', 'images/soundOn.png');
+    }
+  })
+
+
 
 
   $('#playButton').on('click', function(event){
